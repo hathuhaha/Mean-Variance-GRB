@@ -27,7 +27,7 @@ bool Profit_Maximize(ofstream& output, IloEnv& env, IloModel& model, const int& 
 	for (int i = 0; i < N; i++) {
 		EliSum += choose[i];
 	}
-	model.add(EliSum <= eli);
+	model.add(EliSum == eli);
 	for (int i = 0; i < N; i++) {
 		model.add(w[i] <= choose[i]);
 	}
@@ -66,7 +66,7 @@ bool Risk_Minimize(ofstream &output, IloEnv& env, IloModel& model, const int& N,
 	for (int i = 0; i < N; i++) {
 		EliSum += choose[i];
 	}
-	model.add(EliSum <= eli);
+	model.add(EliSum == eli);
 
 	for (int i = 0; i < N; i++) {
 		model.add(w[i] <= choose[i]);
@@ -106,7 +106,7 @@ bool Profit_Risk_Optimize(ofstream& output, IloEnv& env, IloModel& model, const 
 	for (int i = 0; i < N; i++) {
 		EliSum += choose[i];
 	}
-	model.add(EliSum <= eli);
+	model.add(EliSum == eli);
 
 	for (int i = 0; i < N; i++) {
 		model.add(w[i] <= choose[i]);
